@@ -25,11 +25,9 @@ Vagrant.configure("2") do |config|
   config.vm.network "forwarded_port", guest: 3000, host: 3001
   config.vm.network "forwarded_port", guest: 5173, host: 5174
 
-  # Disable default /vagrant mount
+  # Disable all shared folders (use git clone inside VM instead)
   config.vm.synced_folder ".", "/vagrant", disabled: true
 
-  # Mount parent code directory (all sibling repos accessible)
-  config.vm.synced_folder "..", "/home/vagrant/code"
 
   # --- VirtualBox (Windows / Intel Mac) ---
   config.vm.provider "virtualbox" do |vb, override|
