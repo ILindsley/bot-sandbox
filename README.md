@@ -1,10 +1,10 @@
-# Claude Sandbox
+# Bot Sandbox
 
-Isolated VM for running [Claude Code](https://github.com/anthropics/claude-code) with `--dangerously-skip-permissions`.
+Isolated VM for running AI coding assistants (Claude Code, Cursor, etc.) with elevated permissions safely.
 
 ## Why?
 
-The `--dangerously-skip-permissions` flag lets Claude Code run without confirmation prompts, which is great for productivity but risky on your host machine. This VM provides isolation so Claude can't accidentally damage your system.
+Flags like `--dangerously-skip-permissions` let AI bots run without confirmation prompts, which is great for productivity but risky on your host machine. This VM provides isolation so bots can't accidentally damage your system.
 
 ## Setup
 
@@ -16,7 +16,7 @@ winget install Oracle.VirtualBox
 winget install Hashicorp.Vagrant
 
 # Restart terminal, then:
-cd ~/code/claude-sandbox
+cd ~/code/bot-sandbox
 vagrant up
 ```
 
@@ -27,7 +27,7 @@ brew install --cask vmware-fusion
 brew install vagrant
 vagrant plugin install vagrant-vmware-desktop
 
-cd ~/code/claude-sandbox
+cd ~/code/bot-sandbox
 vagrant up --provider=vmware_desktop
 ```
 
@@ -35,7 +35,7 @@ vagrant up --provider=vmware_desktop
 
 ```bash
 brew install --cask virtualbox vagrant
-cd ~/code/claude-sandbox
+cd ~/code/bot-sandbox
 vagrant up
 ```
 
@@ -48,13 +48,13 @@ vagrant ssh
 # Navigate to any project (all ~/code siblings are mounted)
 cd /home/vagrant/code/my-project
 
-# Run Claude Code
+# Run your AI coding assistant
 claude --dangerously-skip-permissions
 ```
 
 ## Multiple Sessions
 
-Open multiple terminals and `vagrant ssh` into each. You can run separate Claude sessions for different projects simultaneously.
+Open multiple terminals and `vagrant ssh` into each. You can run separate bot sessions for different projects simultaneously.
 
 ## Typical Workflow
 
@@ -102,7 +102,7 @@ Your `~/code` directory is mounted at `/home/vagrant/code`:
 
 ```
 /home/vagrant/code/
-├── claude-sandbox/    # This repo (Vagrantfile)
+├── bot-sandbox/    # This repo (Vagrantfile)
 ├── project-a/
 ├── project-b/
 └── ...

@@ -1,9 +1,10 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
-# Claude Code sandbox VM
+# Bot Sandbox VM
 #
-# Provides an isolated environment for running Claude Code with --dangerously-skip-permissions
+# Provides an isolated environment for running AI coding assistants
+# (Claude Code, Cursor, etc.) with elevated permissions safely.
 # Mounts the parent ~/code directory so all sibling projects are accessible.
 #
 # Usage:
@@ -31,7 +32,7 @@ Vagrant.configure("2") do |config|
     override.vm.box = "bento/ubuntu-24.04"
     vb.memory = 4096
     vb.cpus = 2
-    vb.name = "claude-sandbox"
+    vb.name = "bot-sandbox"
   end
 
   # --- VMware Fusion (Mac M-series) ---
@@ -39,7 +40,7 @@ Vagrant.configure("2") do |config|
     override.vm.box = "bento/ubuntu-24.04-arm64"
     v.vmx["memsize"] = "4096"
     v.vmx["numvcpus"] = "2"
-    v.vmx["displayname"] = "claude-sandbox"
+    v.vmx["displayname"] = "bot-sandbox"
   end
 
   # Provisioning script - runs once on first `vagrant up`
@@ -55,7 +56,7 @@ Vagrant.configure("2") do |config|
 
     echo ""
     echo "========================================="
-    echo "Claude sandbox ready!"
+    echo "Bot sandbox ready!"
     echo ""
     echo "  cd /home/vagrant/code/<project>"
     echo "  claude --dangerously-skip-permissions"
