@@ -55,8 +55,8 @@ Vagrant.configure("2") do |config|
     curl -fsSL https://deb.nodesource.com/setup_22.x | sudo -E bash -
     sudo apt-get install -y nodejs
 
-    # Install Claude Code globally
-    sudo npm install -g @anthropic-ai/claude-code
+    # Install Claude Code (native installer - auto-updates, no Node.js dependency)
+    curl -fsSL https://claude.ai/install.sh | bash
 
     echo ""
     echo "========================================="
