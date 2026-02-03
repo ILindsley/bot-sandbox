@@ -89,6 +89,8 @@ Think of `halt` as "shut down my computer" (keeps everything) and `destroy` as "
 | `vagrant status`        | Show VM status (current project) |
 | `vagrant global-status` | Show all VMs across all projects |
 
+**Tip:** Use `vagrant global-status` to get VM IDs, then `vagrant ssh <id>` to connect from any directory without needing to `cd` to the project folder first.
+
 **When to use reload vs destroy:**
 
 - `vagrant reload` — Use after changing the Vagrantfile (e.g., synced folders, ports, memory). Keeps installed software and project state intact.
