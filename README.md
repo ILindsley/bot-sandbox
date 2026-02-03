@@ -89,6 +89,11 @@ Think of `halt` as "shut down my computer" (keeps everything) and `destroy` as "
 | `vagrant status`        | Show VM status (current project) |
 | `vagrant global-status` | Show all VMs across all projects |
 
+**When to use reload vs destroy:**
+
+- `vagrant reload` — Use after changing the Vagrantfile (e.g., synced folders, ports, memory). Keeps installed software and project state intact.
+- `vagrant destroy && vagrant up` — Use for a clean slate. Deletes everything and re-provisions from scratch.
+
 ## What's Provisioned
 
 - Ubuntu 24.04 LTS
