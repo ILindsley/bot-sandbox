@@ -100,8 +100,12 @@ Think of `halt` as "shut down my computer" (keeps everything) and `destroy` as "
 
 - Ubuntu 24.04 LTS
 - Node.js 22.x
-- Claude Code (globally installed)
+- Claude Code (native installer, auto-updates)
 - Ports forwarded: 3000 (guest) => 3001 (host), 5173 (guest) => 5174 (host)
+
+## Further Setup
+
+- [SSH and GitHub CLI Setup](docs/ssh-and-github-setup.md) — Enable `git push` from within the VM
 
 ## Directory Structure
 
