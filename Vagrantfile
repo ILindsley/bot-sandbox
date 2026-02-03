@@ -17,6 +17,10 @@
 # Mac M-series (VMware): vagrant up --provider=vmware_desktop
 
 Vagrant.configure("2") do |config|
+  # Increase boot timeout for systems with Hyper-V/Memory Integrity enabled
+  # (VirtualBox falls back to slower NEM mode when AMD-V/VT-x is unavailable)
+  config.vm.boot_timeout = 600
+
   # Forward common dev ports (host => guest)
   config.vm.network "forwarded_port", guest: 3000, host: 3001
   config.vm.network "forwarded_port", guest: 5173, host: 5174
