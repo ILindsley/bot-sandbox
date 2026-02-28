@@ -35,6 +35,8 @@ Vagrant.configure("2") do |config|
     vb.memory = 4096
     vb.cpus = 2
     vb.name = "bot-sandbox"
+    # Use virtio NIC - more reliable under Hyper-V/NEM (when Memory Integrity is on)
+    vb.default_nic_type = "virtio"
   end
 
   # --- VMware Fusion (Mac M-series) ---
