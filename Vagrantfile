@@ -37,6 +37,11 @@ Vagrant.configure("2") do |config|
     vb.name = "bot-sandbox"
     # Use virtio NIC - more reliable under Hyper-V/NEM (when Memory Integrity is on)
     vb.default_nic_type = "virtio"
+    # When Hyper-V is active, VirtualBox falls back to NEM. Using the "hyperv"
+    # paravirt provider (instead of the default "kvm") avoids kernel crashes
+    # caused by AMD SRSO mitigations that NEM doesn't properly support.
+    vb.customize ["modifyvm", :id, "--paravirt-provider", "hyperv"]
+    vb.customize ["modifyvm", :id, "--largepages", "off"]
   end
 
   # --- VMware Fusion (Mac M-series) ---
