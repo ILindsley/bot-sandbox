@@ -18,9 +18,19 @@ jobs:
       - uses: actions/checkout@v4
       - name: Require MARKER.txt to contain the token
         run: |
+          set -u
           want="${{ vars.MARKER_TOKEN }}"
-          if ! grep -q "$want" MARKER.txt 2>/dev/null; then
-            echo "marker-guard FAILED: create a file MARKER.txt at the repo root containing exactly this token: $want"
+          if [ -z "$want" ]; then
+            echo "marker-guard FAILED: repository variable MARKER_TOKEN is not set"
+            exit 1
+          fi
+          if [ ! -f MARKER.txt ]; then
+            echo "marker-guard FAILED: MARKER.txt not found at the repo root"
+            exit 1
+          fi
+          actual="$(cat MARKER.txt)"
+          if [ "$actual" != "$want" ]; then
+            echo "marker-guard FAILED: MARKER.txt must contain exactly this token: $want"
             exit 1
           fi
           echo "marker-guard OK"
