@@ -1,0 +1,9 @@
+{
+  "name": "bot-sandbox",
+  "version": "0.0.1",
+  "description": "Throwaway sandbox for vger-coder loop-driver e2e validation.",
+  "type": "module",
+  "scripts": {
+    "test": "node --test"
+  }
+}
