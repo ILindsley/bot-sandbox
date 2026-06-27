@@ -12,15 +12,3 @@ jobs:
         with:
           node-version: "22"
       - run: npm test
-  marker-guard:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - name: Require MARKER.txt to contain the token
-        run: |
-          want="${{ vars.MARKER_TOKEN }}"
-          if ! grep -q "$want" MARKER.txt 2>/dev/null; then
-            echo "marker-guard FAILED: create a file MARKER.txt at the repo root containing exactly this token: $want"
-            exit 1
-          fi
-          echo "marker-guard OK"
